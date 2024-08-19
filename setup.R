@@ -11,3 +11,8 @@ usethis::use_git()
 renv::init()
 
 system('git remote add origin https://github.com/rhunter-3/hopwr.git')
+
+# Force this push since github repo created with empty readme.md
+system('git push --force -u origin main')
+
+system('git push --set-upstream origin main')

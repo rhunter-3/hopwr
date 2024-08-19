@@ -1,0 +1,34 @@
+---
+title: "Weighted Dice"
+format: html
+editor: visual
+---
+
+## Weighted Dice
+
+We setup an r object called die that is a vecor of the numbers 1 to 6 using the *:* colon operator and we test some functions on it.
+
+```{r}
+die <- 1:6
+die
+
+# mean of die
+mean(die)
+
+# rounded mean of die
+round(mean(die))
+
+# inner and outer matrix multiplication
+die %*% die
+die %o% die
+
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
