@@ -8,5 +8,6 @@ usethis::git_default_branch_configure()
 gitcreds::gitcreds_set()
 
 usethis::use_git()
+renv::init()
 
 system('git remote add origin https://github.com/rhunter-3/hopwr.git')
