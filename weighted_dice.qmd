@@ -24,11 +24,70 @@ die %o% die
 
 ```
 
-You can add options to executable code like this
+Demonstrating how to roll the dice with the sample function.
 
 ```{r}
-#| echo: false
-2 * 2
+
+sample(die, 1)
+
+# Mixing named arguements and positional matching
+sample(size = 1, die)
+
+# Supplying named arguments in non-standard order
+sample(size = 1, x = die)
+
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+Run a single simulation of rolling the dice twice. We need the replace arguement to be TRUE to replicate real life where you could roll say a pair of 5's.
+
+```{r}
+dice <- sample(die, 2, replace = TRUE)
+dice
+
+sum(dice)
+```
+The object *dice* does not change each time it is called.
+
+```{r}
+dice
+
+dice
+
+dice
+```
+We now write a function that will generate a random roll of two dice and return the sum. In the function definition we take advanatge of the implicit return of the last statement.
+```{r}
+roll <- function() {
+  die <- 1:6
+  dice <- sample(die, 2, replace = TRUE)
+  sum(dice)
+}
+
+# First roll
+roll()
+
+# Second roll
+roll()
+
+# Third roll
+roll()
+
+```
+Now we write a variation roll2 that takes an argument called ***bones*** which is a vector of values.
+We give bones a default argument of `1:6` so that the default behavior replicates `roll()`, a pair of dice.
+```{r}
+roll2 <- function(bones = 1:6) {
+  dice <- sample(bones, 2, replace = TRUE)
+  sum(dice)
+}
+
+# First roll
+roll2(bones = 1:4)
+
+# Second roll - same as a pair of dice as in roll()
+roll2()
+
+# Third roll
+roll2(bones = 1:20)
+```
+
