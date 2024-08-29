@@ -1,0 +1,32 @@
+---
+title: "Playing Cards"
+format: html
+editor: visual
+---
+
+Easy to read in data from a file on the internet. Here we grab the deck.csv from the author's GitHub account.
+
+```{r}
+deck <- read.csv(file = "https://gist.githubusercontent.com/garrettgman/9629323/raw/ee5dfc039fd581cb467cc69c226ea2524913c3d8/deck.csv")
+
+head(deck)
+
+```
+
+Let's save a copy of this dataframe as a csv file. We don't need row.names, we hardly ever will. By default R will save this file to our current working directory which you can find with the `getwd()` function.
+
+we can then check the files in that directory with the `dir()` function.
+
+```{r}
+cat(getwd(), "\n\n")
+write.csv(deck, file = "cards.csv", row.names = FALSE)
+
+
+dir()
+
+```
+
+Also in the code chunk above:
+
+-   I make use of the `cat()` function to print out the data returned by `getwd()` without the **\[1\]** that is normally displayed whenever you return a vector sincce the output of `getwd()` is a vector of length 1.
+-   I also make use of **\\n** to print out two new line characters before then printing the output of the `dir()` function. This is to insert some space betweeen the two results. The backslash is R's escape character. The backslash is also Markdown's escape character, so if I need to show **\\n** in my Quarto/Rmarkdown I need to double up the backslash i.e. my markdown looks like this, \*\*\\\\n\*\*, the double asterisks on either side give the bold emphasis.
