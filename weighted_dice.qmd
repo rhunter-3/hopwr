@@ -4,8 +4,6 @@ format: html
 editor: visual
 ---
 
-## Weighted Dice
-
 We setup an r object called die that is a vecor of the numbers 1 to 6 using the *:* colon operator and we test some functions on it.
 
 ```{r}
